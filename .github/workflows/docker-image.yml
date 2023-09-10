@@ -21,17 +21,17 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t <your-docker-username>/your-image-name:latest .
+          docker build -t mahchoudhury1/flask-hello-world:latest .
         working-directory: ./  # Path to your Dockerfile
 
       - name: Test Docker image
         run: |
-          # Add your tests here
+          docker run mahchoudhury1/flask-hello-world:latest python test.py
         working-directory: ./  # Path to your tests
 
       - name: Push Docker image
         run: |
-          docker push <your-docker-username>/your-image-name:latest
+          docker push mahchoudhury1/flask-hello-world:latest
         working-directory: ./  # Path to your Dockerfile
 
     env:
