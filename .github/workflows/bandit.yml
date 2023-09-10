@@ -25,4 +25,4 @@ jobs:
         with:
           name: bandit-report
           path: .bandit
-          if-no-files-found: always
+          if-no-files-found: warn
