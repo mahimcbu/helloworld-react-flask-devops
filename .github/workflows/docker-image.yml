@@ -1,0 +1,39 @@
+name: CI/CD with Docker
+
+on:
+  push:
+    branches:
+      - main  # Replace with your branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t <your-docker-username>/your-image-name:latest .
+        working-directory: ./  # Path to your Dockerfile
+
+      - name: Test Docker image
+        run: |
+          # Add your tests here
+        working-directory: ./  # Path to your tests
+
+      - name: Push Docker image
+        run: |
+          docker push <your-docker-username>/your-image-name:latest
+        working-directory: ./  # Path to your Dockerfile
+
+    env:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
