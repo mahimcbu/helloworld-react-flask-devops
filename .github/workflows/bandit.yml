@@ -17,7 +17,7 @@ jobs:
         run: pip install bandit
 
       - name: Run Bandit Scan
-        run: bandit -r ./  # Replace with your code directory
+        run: bandit -r /Users/mahimchoudhury/Documents/CS673/hello_world/helloworld-react-flask-devops # Replace with your code directory
 
       - name: Upload Bandit Report
         if: always()
