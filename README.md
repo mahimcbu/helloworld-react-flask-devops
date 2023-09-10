@@ -1,5 +1,5 @@
 # helloworld-react-flask-devops
-
+Please follow this procedures
 1. First create a github repo(i.e hello world flask) and clone it to your local machine
 2. open a terminal and check python version/update as required and then create v env
 	commands: python3 -m venv venv # Create the virtual env named venv
